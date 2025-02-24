@@ -7,7 +7,7 @@ vim.keymap.set("n", "<S-u>", "<C-u>zz", { desc = "Scroll up and recenter" })
 vim.keymap.set("n", "<S-d>", "<C-d>zz", { desc = "Scroll down and recenter" })
 
 -- show hover info
-vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, { desc = "Show Hover Info" })
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Show Hover Info" })
 
 -- go back
 vim.keymap.set("n", "gb", "<C-o>", { desc = "Jump back in jumplist" })
