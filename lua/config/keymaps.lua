@@ -11,3 +11,9 @@ vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Show Hover Info" })
 
 -- go back
 vim.keymap.set("n", "gb", "<C-o>", { desc = "Jump back in jumplist" })
+
+-- move between splits
+vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to split below" })
+vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to split above" })
+vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Move to split left" })
+vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Move to split right" })
