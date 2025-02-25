@@ -11,16 +11,13 @@ return {
 
       -- Define common on_attach function
       local on_attach = function(_, bufnr)
-        -- Enable completion triggered by <c-x><c-o>
-        -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
         -- Buffer local mappings
         local opts = { noremap = true, silent = true, buffer = bufnr }
 
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -54,7 +51,7 @@ return {
         automatic_installation = true,
       })
 
-      -- Configure other LSP servers here
+      -- Configure LSP servers here
       lspconfig.pyright.setup({
         on_attach = on_attach,
       })
@@ -96,7 +93,7 @@ return {
       -- Let typescript.nvim handle TypeScript setup
       require("typescript").setup({
         server = {
-          on_attach = on_attach, -- Use the same on_attach function
+          on_attach = on_attach,
           settings = {
             typescript = {
               inlayHints = {
