@@ -1,11 +1,12 @@
 return {
-  -- change trouble config
-  {
-    "folke/trouble.nvim",
-    -- opts will be merged with the parent spec
-    opts = { use_diagnostic_signs = true },
-  },
+  "folke/trouble.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("trouble").setup()
 
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
+    -- Open diagnostic under cursor in floating window
+    vim.keymap.set("n", "ge", function()
+      vim.diagnostic.open_float({ scope = "cursor" })
+    end, { desc = "Show diagnostic under cursor" })
+  end,
 }
