@@ -105,6 +105,7 @@ return {
             },
           },
         },
+      })
       -- Let typescript.nvim handle TypeScript setup
       require("typescript").setup({
         server = {
