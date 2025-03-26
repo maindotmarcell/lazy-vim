@@ -38,6 +38,7 @@ return {
           "shellcheck",
           "shfmt",
           "flake8",
+          "eslint",
           "solhint",
         },
         automatic_installation = true,
