@@ -38,6 +38,7 @@ return {
           "shellcheck",
           "shfmt",
           "flake8",
+          "solhint",
         },
         automatic_installation = true,
       })
@@ -47,6 +48,7 @@ return {
           "pyright",
           "gopls",
           "lua_ls",
+          "solidity_ls_nomicfoundation",
         },
         automatic_installation = true,
       })
@@ -90,6 +92,19 @@ return {
         },
       })
 
+      lspconfig.solidity_ls_nomicfoundation.setup({
+        on_attach = on_attach,
+        filetypes = { "solidity" },
+        root_dir = lspconfig.util.root_pattern("hardhat.config.*", "foundry.toml", "remappings.txt", ".git"),
+        settings = {
+          solidity = {
+            includePath = "",
+            remappings = {
+              ["@openzeppelin/"] = "lib/openzeppelin-contracts/",
+              ["account-abstraction/"] = "lib/account-abstraction/",
+            },
+          },
+        },
       -- Let typescript.nvim handle TypeScript setup
       require("typescript").setup({
         server = {

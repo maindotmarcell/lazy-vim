@@ -7,6 +7,7 @@ return {
       typescript = { "eslint" },
       javascriptreact = { "eslint" },
       typescriptreact = { "eslint" },
+      solidity = { "solhint" },
     }
   end,
 }

@@ -18,6 +18,7 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         go = { "gofumpt", "goimports" },
+        solidity = { "solhint", "prettier" },
       },
       formatters = {
         gofumpt = {
