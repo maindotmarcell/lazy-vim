@@ -10,6 +10,7 @@ return {
     -- Other configuration options
     show_help = "yes", -- Show help text for CopilotChatInPlace
     debug = false, -- Enable debug logging
+    context = "buffer", -- Default context to use ('buffer', 'current_line', 'selection')
   },
   config = function(_, opts)
     local copilot_chat = require("CopilotChat")
