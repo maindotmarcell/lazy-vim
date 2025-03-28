@@ -10,7 +10,6 @@ return {
       },
       panel = { enabled = false },
     })
-    require("copilot.command").disable()
   end,
   keys = {
     {
