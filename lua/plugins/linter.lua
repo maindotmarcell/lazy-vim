@@ -7,9 +7,9 @@ return {
 
     lint.linters_by_ft = {
       javascript = { "eslint" },
-      typescript = { "eslint" },
+      typescript = { "eslint", "tslint" },
       javascriptreact = { "eslint" },
-      typescriptreact = { "eslint" },
+      typescriptreact = { "eslint", "tslint" },
       solidity = { "solhint" },
     }
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
