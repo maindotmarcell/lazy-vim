@@ -3,8 +3,18 @@
 -- Add any additional keymaps here
 
 -- remap ctrl+u/d to shift+u/d
-vim.keymap.set({ "n", "v" }, "<S-u>", "<C-u>zz", { desc = "Scroll up and recenter" })
-vim.keymap.set({ "n", "v" }, "<S-d>", "<C-d>zz", { desc = "Scroll down and recenter" })
+vim.keymap.set(
+  { "n", "v" },
+  "<S-u>",
+  "<C-u><cmd>lua vim.schedule(function() vim.cmd('normal! zz') end)<CR>",
+  { desc = "Scroll up and recenter" }
+)
+vim.keymap.set(
+  { "n", "v" },
+  "<S-d>",
+  "<C-d><cmd>lua vim.schedule(function() vim.cmd('normal! zz') end)<CR>",
+  { desc = "Scroll down and recenter" }
+)
 
 -- go back
 vim.keymap.set("n", "gb", "<C-o>", { desc = "Jump back in jumplist" })
