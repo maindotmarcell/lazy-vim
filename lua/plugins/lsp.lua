@@ -46,7 +46,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "ts_ls",
-          "pyright",
+          "pylsp",
           "gopls",
           "lua_ls",
           "solidity_ls_nomicfoundation",
@@ -55,8 +55,27 @@ return {
       })
 
       -- Configure LSP servers here
-      lspconfig.pyright.setup({
+
+      lspconfig.pylsp.setup({
         on_attach = on_attach,
+        settings = {
+          pylsp = {
+            plugins = {
+              -- Enable Ruff for diagnostics (instead of pyflakes, pylint, etc.)
+              ruff = {
+                enabled = true,
+                extendSelect = { "I" }, -- optional: add isort-like import sorting
+              },
+
+              -- Enable Rope for intelligent auto-import code actions
+              rope_autoimport = { enabled = true },
+
+              -- Formatters
+              black = { enabled = true },
+              isort = { enabled = true },
+            },
+          },
+        },
       })
 
       lspconfig.gopls.setup({

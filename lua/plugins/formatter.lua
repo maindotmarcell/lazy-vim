@@ -1,8 +1,8 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" }, -- Load the plugin before saving
-    cmd = { "ConformInfo" }, -- Enable ConformInfo command
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     opts = {
       notify_on_error = true,
       log_level = vim.log.levels.DEBUG,
@@ -19,6 +19,7 @@ return {
         markdown = { "prettier" },
         go = { "gofumpt", "goimports" },
         solidity = { "solhint", "prettier" },
+        python = { "black" },
       },
       formatters = {
         gofumpt = {
@@ -45,6 +46,11 @@ return {
             trailing_comma = "es5",
             use_tabs = false,
           },
+        },
+        black = {
+          command = "black",
+          args = { "-" },
+          stdin = true,
         },
       },
     },
