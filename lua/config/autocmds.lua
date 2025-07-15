@@ -8,8 +8,10 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- FILE: lua/config/autocmds.lua
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
+if vim.fn.executable("eslint") == 1 then
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    callback = function()
+      require("lint").try_lint()
+    end,
+  })
+end
